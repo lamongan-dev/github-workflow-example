@@ -18,9 +18,14 @@ jobs:
           cd nodejs
           npm install
           npm test
-  build-and-push-image:
+  deploy:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "Build trigger successfull"
+      - uses: "actions/checkout@v3"
+      - name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
+      - name: Deploy to cloud run
+        run: "gcloud run deploy sby-hacktoberfest-demo --source ."
