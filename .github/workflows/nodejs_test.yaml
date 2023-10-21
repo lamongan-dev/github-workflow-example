@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - nodejs/**
-      - .github/workflows/**
+      - .github/workflows/nodejs*.yaml
 jobs:
   test:
     runs-on: ubuntu-latest
