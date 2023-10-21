@@ -1,0 +1,25 @@
+name: Node.js Build
+on:
+  push:
+    - feat/build-nodejs
+  paths:
+    - nodejs/**
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependency & run test
+        run: |
+          cd nodejs
+          npm install
+          npm test
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Build trigger successfull"
