@@ -28,4 +28,4 @@ jobs:
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
       - name: Deploy to cloud run
-        run: "gcloud run deploy sby-hacktoberfest-demo --source ."
+        run: "gcloud run deploy sby-hacktoberfest-demo --region=asia-southeast2-b --source ."
