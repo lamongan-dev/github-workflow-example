@@ -18,7 +18,7 @@ jobs:
           cd nodejs
           npm install
           npm test
-  build-and-push-image:
+  deploy:
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -27,5 +27,7 @@ jobs:
         uses: "google-github-actions/auth@v1"
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
-      - name: Deploy to cloud run
-        run: "gcloud run deploy sby-hacktoberfest-demo --region asia-southeast2-b --source . --entrypoint server.js"
+      - name: Deploy to app engine
+        run: |
+          cd nodejs
+          gcloud app deploy
