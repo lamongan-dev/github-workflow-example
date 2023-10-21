@@ -1,9 +1,10 @@
 name: Node.js Build
 on:
   push:
-    - feat/build-nodejs
-  paths:
-    - nodejs/**
+    branches:
+      - feat/build-nodejs
+    paths:
+      - nodejs/**
 jobs:
   test:
     runs-on: ubuntu-latest
