@@ -2,9 +2,9 @@ name: Node.js Test
 on:
   pull_request:
     branches:
-      - main
-    paths:
-      - nodejs/**
+      - feat/build-nodejs
+    # paths:
+    #   - nodejs/**
 jobs:
   test:
     runs-on: ubuntu-latest
