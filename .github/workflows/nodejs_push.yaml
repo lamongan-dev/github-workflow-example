@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - feat/build-nodejs
-    paths:
-      - nodejs/**
+    # paths:
+    #   - nodejs/**
 jobs:
   test:
     runs-on: ubuntu-latest
