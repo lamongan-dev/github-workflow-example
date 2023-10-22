@@ -11,5 +11,6 @@ describe("Hello World API", () => {
     const message = response.body.message;
     expect(message.includes("Hactoberfest")).toBe(true);
     expect(message.includes("Surabaya")).toBe(true);
+    expect(message.includes("2023")).toBe(true);
   });
 });
