@@ -1,11 +1,11 @@
 name: React.js CI/CD
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - reactjs/**
-      - .github/workflows/reactjs*.yaml
+    pull_request:
+        branches:
+        - main
+        paths:
+        - reactjs/**
+        - .github/workflows/reactjs*.yaml
 jobs:
   test:
     runs-on: ubuntu-latest
