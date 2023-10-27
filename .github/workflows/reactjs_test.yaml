@@ -1,0 +1,26 @@
+name: React.js CI/CD
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - reactjs/**
+      - .github/workflows reactjs*.yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            node-version: [10.x, 12.x, 14.x, 16.x, 18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+            node-version: ${{ matrix.node-version }}
+      - name: Install dependency & run test
+        run: |
+            cd reactjs
+            npm install
+            npm ci
+            npm test
