@@ -2,7 +2,7 @@ name: React.js CI/CD
 on:
   push:
     branches:
-      - dev
+      - main
     paths:
       - reactjs/**
       - .github/workflows reactjs*.yaml
